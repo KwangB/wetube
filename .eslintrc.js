@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "brower":true
     },
     "extends": ["eslint:recommended","plugin:prettier/recommended"],
     "globals": {
