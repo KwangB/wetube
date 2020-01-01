@@ -27,10 +27,10 @@ export const getUpload = (req,res) => res.render("upload", {pageTitle:'Upload'})
 export const PostUpload = async (req,res) => {
     const{
         body:{title,description},
-        file:{path}
+        file:{location}
     }= req;
     const newVideo = await Video.create({
-        fileUrl:path,
+        fileUrl:location,
         title,
         description,
         creator: req.user.id
@@ -64,7 +64,7 @@ export const getEditVideo = async(req,res) => {
         params:{id}
     } = req;
     try{
-        const video = await Video.findById(id);
+        const video = await Video.findById(id).populate("creator");
         if(video.creator.id !== req.user.id){
             throw Error();
         }else{
