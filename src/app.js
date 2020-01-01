@@ -16,6 +16,7 @@ import globalRouter from "./routers/globalRouter";
 import apiRouter from "./routers/apiRouter";
 import "./passport";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const app = express();
